@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:body>
+        <ui:composition template="./WEB-INF/template/layoutTemplate.xhtml">
+
+            <ui:define name="content">
+                <div id="registerForm">
+                    <h:form>
+                        <div class="label">店舗名：</div>
+                        <div class="input"><h:inputText value="#{shopViewBean.shop.shopName}" /></div>
+                        <div class="label">店舗住所1：</div>
+                        <div class="input"><h:inputText value="#{shopViewBean.shop.shopAddress1}"/></div>
+                        <div class="label">店舗住所2：</div>
+                        <div class="input"><h:inputText value="#{shopViewBean.shop.shopAddress2}"/></div>
+                        <div class="label">店舗URL：</div>
+                        <div class="input"><h:inputText value="#{shopViewBean.shop.shopUrl}"/></div>
+                        <div class="buttonGroup">
+                            <div class="button"><h:commandButton action="#{shopEditBean.deleteShop()}" value="削除" /> </div>
+                            <div class="button"><h:commandButton action="#{shopEditBean.updateShop()}" value="更新" /> </div>
+                        </div>
+                    </h:form>
+
+                </div>
+            </ui:define>
+
+        </ui:composition>
+    </h:body>
+</html>
+
