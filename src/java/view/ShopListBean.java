@@ -7,8 +7,6 @@ package view;
 
 import entity.Shop;
 import facade.ShopFacade;
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -29,14 +27,13 @@ public class ShopListBean{
      * Creates a new instance of ShopListBean
      */
     public ShopListBean() {
-        this.shopList = new ArrayList<Shop>();
     }
     
-    public String refresh(){
+    public void refresh(){
         System.out.println("in get shop list");
         this.shopList = shopFacade.findAll();
         System.out.println("list size:" + this.shopList.size());
-        return "shoplist";
+        
     }
     public List<Shop> getShopList() {
         return shopList;

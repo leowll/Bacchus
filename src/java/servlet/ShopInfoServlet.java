@@ -6,7 +6,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,6 +39,7 @@ public class ShopInfoServlet extends HttpServlet {
         String id =request.getParameter("id");
         System.out.println("ID:"+id);
         shopViewBean.setShopByID(Integer.parseInt(id));
+        shopViewBean.setMessage(null);
         response.sendRedirect("faces/shopinfo.xhtml");
     }
 

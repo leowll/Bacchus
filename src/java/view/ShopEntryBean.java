@@ -37,6 +37,7 @@ public class ShopEntryBean {
     public String newShop(){
         shopFacade.create(shop);
         shopViewBean.setShop(shop);
+        shopViewBean.setMessage("店舗を新規登録しました");
         return "shopinfo";
     }
     

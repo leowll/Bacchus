@@ -1,15 +1,16 @@
-<?xml version='1.0' encoding='UTF-8' ?> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link type="text/css" rel="stylesheet" href="./resources/css/default.css"/>
         <link type="text/css" rel="stylesheet" href="./resources/css/cssLayout.css"/>
-        <title>Facelets Template</title>
+
+        <title><ui:insert name="title">Baccus!</ui:insert></title>
+
         <style>
             div#layout{
                 width:900px;
@@ -24,7 +25,7 @@
                 padding-left:10px;
                 display: inline;
             }
-            
+
             div#registerForm{
                 width:80%;
                 margin:20px auto;
@@ -51,12 +52,12 @@
                 width:50%;
                 padding-top: 10px;
             }
-            
+
             div#shoplist{
                 width:50%;
                 margin: 10px auto;
             }
-            
+
         </style>
     </h:head>
 

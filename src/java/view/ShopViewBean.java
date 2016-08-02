@@ -10,7 +10,6 @@ import facade.ShopFacade;
 import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 
 /**
@@ -22,6 +21,8 @@ import javax.enterprise.context.SessionScoped;
 public class ShopViewBean implements Serializable{
 
     private Shop shop;
+    private String message;
+
 
     @EJB
     private ShopFacade shopFacade;
@@ -30,6 +31,7 @@ public class ShopViewBean implements Serializable{
      */
     public ShopViewBean() {
         this.shop = new Shop();
+        this.message = null;
     }
 
     public Shop getShop() {
@@ -43,5 +45,13 @@ public class ShopViewBean implements Serializable{
     public void setShopByID(Integer id){
         this.shop = shopFacade.find(id);
         
+    }
+    
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

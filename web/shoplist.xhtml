@@ -1,54 +1,53 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<!DOCTYPE html>
+<html lang="jp"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:composition template="./WEB-INF/template/layoutTemplate.xhtml">
+        <ui:define name="title">店舗一覧</ui:define>
 
-    <h:body>
-
-        <ui:composition template="./WEB-INF/template/layoutTemplate.xhtml">
-
-            <ui:define name="content">
-                <f:view>
-                    <div id="shoplist">
-                        <div>
-                            <h:form>
-                                <h:commandButton action="#{backingBean.showList()}" value="Refresh"/>
-                            </h:form>
-                        </div>
-                        <table border="1">
-                            <thead>
-                                <tr>
-                                    <th>店舗名</th>
-                                    <th>住所１</th>
-                                    <th>住所２</th>
-                                    <th>URL</th>
-                                    <th>薦め回数</th>
-                                    <th>操作</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <h:form>
-                                    <c:forEach items="#{shopListBean.shopList}" var="shop">
-                                        <tr>
-                                            <td>#{shop.shopName}</td>
-                                            <td>#{shop.shopAddress1}</td>
-                                            <td>#{shop.shopAddress2}</td>
-                                            <td>#{shop.shopUrl}</td>
-                                            <td>#{shop.shopFavorite}</td>
-                                            <td><a  href="/Bacchus/shopinfo?id=#{shop.id}">詳細</a> </td>
-                                        </tr>
-                                    </c:forEach>
-                                </h:form>
-                            </tbody>
-                        </table>
+        <ui:define name="content">
+            <f:view>
+                <f:metadata>
+                    <f:viewAction action="#{shopListBean.refresh}" phase="APPLY_REQUEST_VALUES"/>    
+                </f:metadata>
+                <div id="shoplist">
+                    <div>
+                        <h:form>
+                            <h:commandButton action="#{shopListBean.refresh}" value="Refresh"/>
+                        </h:form>
                     </div>
-                </f:view>
-            </ui:define>
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>店舗名</th>
+                                <th>住所１</th>
+                                <th>住所２</th>
+                                <th>URL</th>
+                                <th>薦め回数</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <h:form>
+                                <c:forEach items="#{shopListBean.shopList}" var="shop">
+                                    <tr>
+                                        <td>#{shop.shopName}</td>
+                                        <td>#{shop.shopAddress1}</td>
+                                        <td>#{shop.shopAddress2}</td>
+                                        <td>#{shop.shopUrl}</td>
+                                        <td>#{shop.shopFavorite}</td>
+                                        <td><a  href="/Bacchus/shopinfo?id=#{shop.id}">詳細</a> </td>
+                                    </tr>
+                                </c:forEach>
+                            </h:form>
+                        </tbody>
+                    </table>
+                </div>
+            </f:view>
+        </ui:define>
+    </ui:composition>
 
-        </ui:composition>
-
-    </h:body>
 </html>

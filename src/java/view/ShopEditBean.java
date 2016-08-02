@@ -27,6 +27,8 @@ public class ShopEditBean {
     
     @Inject
     private ShopViewBean shopViewBean;
+    @Inject
+    private ShopListBean shopListBean;
     /**
      * Creates a new instance of ShopEditBean
      */
@@ -42,6 +44,7 @@ public class ShopEditBean {
     public String deleteShop(){
         this.shop = shopViewBean.getShop();
         shopFacade.remove(this.shop);
+        shopListBean.refresh();
         return "shoplist";
     }
     
