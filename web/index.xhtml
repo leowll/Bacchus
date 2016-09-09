@@ -12,7 +12,10 @@
                     <h1>Welcome to Bacchus!</h1>
                     <img src="resources/images/Bacchus.gif"/>
                 </div> 
-                
+                <h:form>
+                    <h:commandButton action="#{testBean.test()}" value="Test"/>
+                    <h:commandLink action="test/testPage?faces-redirect=true"  value="Test2"/>
+                </h:form>
             </ui:define>
         </ui:composition>
     </body>
